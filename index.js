@@ -9,45 +9,49 @@ let inOrder = currentNode => {
     }
 }
 
-// let findOrAdd = (currentNode, newNode) => {
-//     if(currentNode.data === newNode.data){
-//         return true
-//     }
+let findOrAdd = (currentNode, newNode) => {
+    if(currentNode.data === newNode.data){
+        return true
+    }
 
-//     if(currentNode.data === null){
-//         return currentNode = newNode
-//     }
+    if(currentNode.data > newNode.data){
+        if(currentNode.left){
+            return findOrAdd(currentNode.left, newNode)
+        }else{
+            return currentNode.left = newNode
+        }
+    }
 
-//     if(currentNode.data > newNode.data){
+    if(currentNode.data < newNode.data){
+        if(currentNode.right){
+            return findOrAdd(currentNode.right, newNode)
+        }else{
+            return currentNode.right = newNode
+        }
+    }
+
+}
+
+// function findOrAdd(currentNode, newNode){
+//     if(currentNode.data == newNode.data){
+//       return true
+//     }
+//     if(newNode.data < currentNode.data){
+//       if(currentNode.left){
 //         return findOrAdd(currentNode.left, newNode)
+//       } else {
+//         return currentNode.left = newNode
+//       }
 //     }
-
-//     if(currentNode.data < newNode.data){
-//         return findOrAdd(currentNode.right, newNode)
-//     }
-
-// }
-
-function findOrAdd(currentNode, newNode){
-    if(currentNode.data == newNode.data){
-      return true
-    }
-    if(newNode.data < currentNode.data){
-      if(currentNode.left){
-        return findOrAdd(currentNode.left, newNode)
-      } else {
-        return currentNode.left = newNode
-      }
-    }
   
-    if(newNode.data > currentNode.data){
-      if(currentNode.right){
-        return findOrAdd(currentNode.right, newNode)
-      } else {
-        return currentNode.right = newNode
-      }
-    }
-  }
+//     if(newNode.data > currentNode.data){
+//       if(currentNode.right){
+//         return findOrAdd(currentNode.right, newNode)
+//       } else {
+//         return currentNode.right = newNode
+//       }
+//     }
+//   }
 
 function max(currentNode){
     if(currentNode.right){
